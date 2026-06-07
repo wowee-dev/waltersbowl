@@ -14,9 +14,11 @@ if (!window.MenuShared) {
     loginMessage.hidden = false;
     loginMessage.textContent = "Admin scripts failed to load. Hard-refresh the page (Ctrl+Shift+R).";
   }
-  throw new Error("MenuShared failed to load.");
+} else {
+  bootAdmin();
 }
 
+function bootAdmin() {
 const {
   clearStoredToken,
   createEmptyItem,
@@ -385,7 +387,9 @@ async function handleLogin() {
   }
 }
 
-loginButton.addEventListener("click", handleLogin);
+if (loginButton) {
+  loginButton.addEventListener("click", handleLogin);
+}
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
   handleLogin();
@@ -417,3 +421,4 @@ async function init() {
 }
 
 init();
+}
