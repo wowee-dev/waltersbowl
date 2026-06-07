@@ -18,7 +18,7 @@
         <div class="login-card">
           <h1>Menu Admin</h1>
           <p>Sign in to update tonight's dinner menu.</p>
-          <form id="login-form">
+          <form id="login-form" action="#" method="post">
             <label for="password">Password</label>
             <input id="password" name="password" type="password" autocomplete="current-password" required />
             <button type="submit">Sign in</button>
@@ -73,6 +73,7 @@
       </section>
     </div>
 
-    <script type="module" src="/js/admin.js"></script>
+    <script src="/js/shared.js" defer></script>
+    <script src="/js/admin.js" defer></script>
   </body>
 </html>

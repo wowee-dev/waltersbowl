@@ -1,4 +1,8 @@
-import {
+if (!window.MenuShared) {
+  throw new Error("MenuShared failed to load.");
+}
+
+const {
   clearStoredToken,
   createEmptyItem,
   DIETARY_OPTIONS,
@@ -8,7 +12,7 @@ import {
   login,
   saveMenu,
   storeToken,
-} from "./shared.js";
+} = window.MenuShared;
 
 const loginPanel = document.getElementById("login-panel");
 const editorPanel = document.getElementById("editor-panel");
@@ -141,16 +145,16 @@ function renderItemRow(sectionId, item, index) {
 
 function escapeAttribute(value) {
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("<", "&lt;");
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;");
 }
 
 function escapeHtml(value) {
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
 function renderSectionPanel(section) {

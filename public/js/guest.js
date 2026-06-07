@@ -1,8 +1,4 @@
-import {
-  escapeHtml,
-  fetchMenu,
-  renderDietaryBadges,
-} from "./shared.js";
+const { escapeHtml, fetchMenu, renderDietaryBadges } = window.MenuShared;
 
 const titleEl = document.getElementById("menu-title");
 const dateEl = document.getElementById("menu-date");
