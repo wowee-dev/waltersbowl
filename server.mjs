@@ -6,6 +6,7 @@ import menuHandler from "./api/menu.js";
 import authHandler from "./api/auth.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const PUBLIC_DIR = path.join(__dirname, "public");
 const PORT = process.env.PORT || 3001;
 
 const MIME_TYPES = {
@@ -38,9 +39,9 @@ function createResponse(res) {
 
 async function serveStatic(urlPath, res) {
   const safePath = urlPath === "/" ? "/index.html" : urlPath;
-  const filePath = path.join(__dirname, safePath.replace(/^\//, ""));
+  const filePath = path.join(PUBLIC_DIR, safePath.replace(/^\//, ""));
 
-  if (!filePath.startsWith(__dirname)) {
+  if (!filePath.startsWith(PUBLIC_DIR)) {
     res.writeHead(403);
     res.end("Forbidden");
     return;
