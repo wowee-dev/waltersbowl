@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const adminPassword = process.env.ADMIN_PASSWORD?.trim();
   if (!adminPassword) {
     jsonResponse(res, 500, { error: "Admin password is not configured." });
     return;

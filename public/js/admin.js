@@ -363,11 +363,17 @@ loginForm.addEventListener("submit", async (event) => {
   try {
     const { token, expiresAt } = await login(password);
     storeToken(token, expiresAt);
-    showEditor();
-    await loadMenu();
   } catch (error) {
     loginMessage.hidden = false;
     loginMessage.textContent = error.message;
+    return;
+  }
+
+  showEditor();
+  try {
+    await loadMenu();
+  } catch (error) {
+    setSaveStatus(error.message, true);
   }
 });
 
