@@ -368,7 +368,19 @@ async function handleSave() {
 
 async function handleLogin() {
   loginMessage.hidden = true;
-  const password = loginForm.password.value;
+  const passwordInput = document.getElementById("password");
+  const password = passwordInput?.value || "";
+
+  if (!password) {
+    loginMessage.hidden = false;
+    loginMessage.textContent = "Password is required.";
+    return;
+  }
+
+  if (loginButton) {
+    loginButton.disabled = true;
+    loginButton.textContent = "Signing in…";
+  }
 
   try {
     const { token, expiresAt } = await login(password);
@@ -377,6 +389,11 @@ async function handleLogin() {
     loginMessage.hidden = false;
     loginMessage.textContent = error.message;
     return;
+  } finally {
+    if (loginButton) {
+      loginButton.disabled = false;
+      loginButton.textContent = "Sign in";
+    }
   }
 
   showEditor();
