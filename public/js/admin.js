@@ -1,4 +1,19 @@
+const loginPanel = document.getElementById("login-panel");
+const editorPanel = document.getElementById("editor-panel");
+const loginForm = document.getElementById("login-form");
+const loginButton = document.getElementById("login-button");
+const loginMessage = document.getElementById("login-message");
+const logoutButton = document.getElementById("logout-button");
+const saveButton = document.getElementById("save-button");
+const saveStatus = document.getElementById("save-status");
+const sectionTabs = document.getElementById("section-tabs");
+const sectionPanels = document.getElementById("section-panels");
+
 if (!window.MenuShared) {
+  if (loginMessage) {
+    loginMessage.hidden = false;
+    loginMessage.textContent = "Admin scripts failed to load. Hard-refresh the page (Ctrl+Shift+R).";
+  }
   throw new Error("MenuShared failed to load.");
 }
 
@@ -13,16 +28,6 @@ const {
   saveMenu,
   storeToken,
 } = window.MenuShared;
-
-const loginPanel = document.getElementById("login-panel");
-const editorPanel = document.getElementById("editor-panel");
-const loginForm = document.getElementById("login-form");
-const loginMessage = document.getElementById("login-message");
-const logoutButton = document.getElementById("logout-button");
-const saveButton = document.getElementById("save-button");
-const saveStatus = document.getElementById("save-status");
-const sectionTabs = document.getElementById("section-tabs");
-const sectionPanels = document.getElementById("section-panels");
 
 const metaFields = {
   title: document.getElementById("meta-title"),
@@ -359,8 +364,7 @@ async function handleSave() {
   }
 }
 
-loginForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
+async function handleLogin() {
   loginMessage.hidden = true;
   const password = loginForm.password.value;
 
@@ -379,6 +383,12 @@ loginForm.addEventListener("submit", async (event) => {
   } catch (error) {
     setSaveStatus(error.message, true);
   }
+}
+
+loginButton.addEventListener("click", handleLogin);
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  handleLogin();
 });
 
 logoutButton.addEventListener("click", () => {
