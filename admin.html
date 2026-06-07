@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <section class="login-panel" id="login-panel">
+        <div class="login-card">
+          <h1>Menu Admin</h1>
+          <p>Sign in to update tonight's dinner menu.</p>
+          <form id="login-form">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required />
+            <button type="submit">Sign in</button>
+          </form>
+          <p class="form-message" id="login-message" hidden></p>
+        </div>
+      </section>
+
+      <section class="editor-panel" id="editor-panel" hidden>
+        <header class="editor-header">
+          <div>
+            <h1>Menu Editor</h1>
+            <p class="editor-subtitle">Update dishes and details, then save for guests.</p>
+          </div>
+          <div class="editor-actions">
+            <a class="button-link" href="/" target="_blank" rel="noopener noreferrer">View guest page</a>
+            <button type="button" class="button-secondary" id="logout-button">Log out</button>
+          </div>
+        </header>
+
+        <form id="menu-form">
+          <fieldset class="meta-panel">
+            <legend>Party details</legend>
+            <div class="field-grid">
+              <label>
+                Title
+                <input id="meta-title" name="title" type="text" required />
+              </label>
+              <label>
+                Host name
+                <input id="meta-host" name="hostName" type="text" required />
+              </label>
+              <label>
+                Date
+                <input id="meta-date" name="date" type="text" required />
+              </label>
+              <label class="field-full">
+                Welcome message
+                <textarea id="meta-welcome" name="welcomeMessage" rows="3"></textarea>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="section-tabs" id="section-tabs" role="tablist" aria-label="Menu sections"></div>
+          <div class="section-panels" id="section-panels"></div>
+        </form>
+
+        <footer class="save-bar">
+          <p class="save-status" id="save-status">Not saved yet</p>
+          <button type="button" class="button-primary" id="save-button">Save menu</button>
+        </footer>
+      </section>
+    </div>
+
+    <script type="module" src="/js/admin.js"></script>
+  </body>
+</html>

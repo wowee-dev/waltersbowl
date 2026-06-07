@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "Dinner at Home",
+    "hostName": "Omari",
+    "date": "Saturday, May 31",
+    "welcomeMessage": "So glad you could make it tonight. Pull up a chair — dinner is almost ready."
+  },
+  "sections": [
+    {
+      "id": "small-bites",
+      "label": "Small Bites",
+      "items": [
+        {
+          "id": "sb-1",
+          "name": "Whipped Feta",
+          "description": "Honey, pistachio, warm pita",
+          "dietary": ["vegetarian"],
+          "note": ""
+        },
+        {
+          "id": "sb-2",
+          "name": "Marinated Olives",
+          "description": "Citrus zest, rosemary, chili flake",
+          "dietary": ["vegan", "gluten-free"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "big-bites",
+      "label": "Big Bites",
+      "items": [
+        {
+          "id": "bb-1",
+          "name": "Herb-Roasted Chicken",
+          "description": "Lemon pan jus, seasonal vegetables",
+          "dietary": ["gluten-free"],
+          "note": ""
+        },
+        {
+          "id": "bb-2",
+          "name": "Mushroom Risotto",
+          "description": "Parmesan, thyme, finished with truffle oil",
+          "dietary": ["vegetarian", "gluten-free"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "sweet-treat",
+      "label": "Sweet Treat",
+      "items": [
+        {
+          "id": "st-1",
+          "name": "Dark Chocolate Pot de Crème",
+          "description": "Sea salt, whipped cream",
+          "dietary": ["vegetarian", "gluten-free"],
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "sipping",
+      "label": "Sipping",
+      "items": [
+        {
+          "id": "sp-1",
+          "name": "Sparkling Rosemary Lemonade",
+          "description": "Non-alcoholic, batch at the bar",
+          "dietary": ["vegan", "gluten-free"],
+          "note": "Refills welcome"
+        },
+        {
+          "id": "sp-2",
+          "name": "House Red",
+          "description": "Easy-drinking, medium-bodied",
+          "dietary": ["vegan", "gluten-free"],
+          "note": ""
+        }
+      ]
+    }
+  ]
+}

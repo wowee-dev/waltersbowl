@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinner Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/guest.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero" id="hero">
+        <p class="eyebrow">An evening with</p>
+        <h1 class="title" id="menu-title">Dinner at Home</h1>
+        <p class="date" id="menu-date"></p>
+        <p class="welcome" id="menu-welcome"></p>
+      </header>
+
+      <main class="menu" id="menu-sections" aria-live="polite"></main>
+
+      <div class="fallback" id="menu-fallback" hidden>
+        <p class="fallback-title">Menu coming soon</p>
+        <p class="fallback-copy">We're putting the finishing touches on tonight's spread.</p>
+      </div>
+    </div>
+
+    <script type="module" src="/js/guest.js"></script>
+  </body>
+</html>

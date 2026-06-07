@@ -1,0 +1,314 @@
+:root {
+  color-scheme: light;
+  --bg: #f3f4f6;
+  --panel: #ffffff;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #8b4f3a;
+  --accent-dark: #6f3d2d;
+  --danger: #b42318;
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+.admin-shell {
+  min-height: 100vh;
+}
+
+.login-panel {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.login-card,
+.editor-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.login-card {
+  width: min(100%, 420px);
+  padding: 2rem;
+}
+
+.login-card h1,
+.editor-header h1,
+.section-panel h2 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.login-card p,
+.editor-subtitle,
+.label-hint,
+.empty-section {
+  color: var(--muted);
+}
+
+.login-card form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+label,
+fieldset {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  background: #fff;
+}
+
+input:focus,
+textarea:focus,
+button:focus-visible {
+  outline: 2px solid rgba(139, 79, 58, 0.35);
+  outline-offset: 1px;
+}
+
+button,
+.button-link {
+  cursor: pointer;
+  border: 0;
+  border-radius: 0.65rem;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-card button,
+.button-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.login-card button:hover,
+.button-primary:hover {
+  background: var(--accent-dark);
+}
+
+.button-secondary,
+.button-link {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.form-message {
+  margin: 0.75rem 0 0;
+  color: var(--danger);
+}
+
+.editor-panel {
+  max-width: 980px;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+}
+
+.editor-header,
+.section-panel-header,
+.save-bar,
+.item-row-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.editor-header {
+  margin-bottom: 1.5rem;
+}
+
+.editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.meta-panel,
+.section-panel,
+.item-row {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+.meta-panel {
+  margin-bottom: 1.25rem;
+}
+
+.meta-panel legend,
+.dietary-fieldset legend {
+  padding: 0 0.35rem;
+  font-weight: 600;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.section-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-tab {
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.section-tab.is-active {
+  background: rgba(139, 79, 58, 0.12);
+  border-color: rgba(139, 79, 58, 0.35);
+  color: var(--accent-dark);
+}
+
+.section-panels {
+  display: grid;
+  gap: 1rem;
+}
+
+.section-panel-header {
+  margin-bottom: 1rem;
+}
+
+.item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.item-row {
+  display: grid;
+  gap: 0.85rem;
+  background: #fcfcfd;
+}
+
+.item-row.is-dragging {
+  opacity: 0.55;
+}
+
+.item-row.is-drop-target {
+  border-color: rgba(139, 79, 58, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(139, 79, 58, 0.25);
+}
+
+.drag-handle {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 0.35rem 0.55rem;
+}
+
+.delete-item {
+  background: #fff;
+  border: 1px solid #f2c6c2;
+  color: var(--danger);
+}
+
+.dietary-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.dietary-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.dietary-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 400;
+}
+
+.dietary-option input {
+  width: auto;
+}
+
+.save-bar {
+  position: sticky;
+  bottom: 0;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff 35%);
+}
+
+.save-status {
+  margin: 0;
+  color: var(--muted);
+}
+
+.save-status.is-error {
+  color: var(--danger);
+}
+
+@media (max-width: 720px) {
+  .editor-header,
+  .section-panel-header,
+  .save-bar,
+  .field-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .editor-actions {
+    width: 100%;
+  }
+
+  .button-link,
+  .button-secondary,
+  .button-primary,
+  .login-card button {
+    width: 100%;
+    text-align: center;
+  }
+}
